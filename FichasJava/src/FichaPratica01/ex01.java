@@ -16,7 +16,7 @@ public class ex01 {
         num1 = input.nextInt();
 
         // Ler num2
-        System.out.print("Insira outro: ");
+        System.out.print("Insira outro numero: ");
         num2 = input.nextInt();
 
         // Soma num1 e num2

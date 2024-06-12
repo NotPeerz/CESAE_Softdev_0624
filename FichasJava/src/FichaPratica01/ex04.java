@@ -20,7 +20,7 @@ public class ex04 {
         area=3.14*raio*raio;
 
         //Apresentar o resultado
-        System.out.print("Olá! A área é "+area);
+        System.out.print("Olá! A área é "+area+" m2");
 
 
     }
