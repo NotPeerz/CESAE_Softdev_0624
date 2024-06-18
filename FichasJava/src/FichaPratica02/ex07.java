@@ -12,7 +12,7 @@ public class ex07 {
         int num1;
 
         //Ler num1
-        
+
 
 
 
