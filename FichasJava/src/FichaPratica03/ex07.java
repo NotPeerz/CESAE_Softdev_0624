@@ -13,7 +13,7 @@ public class ex07 {
             x = x + 1;
 
         }
-        System.out.println(y);
+        System.out.println("Somatorio:"+y);
 
 
 
