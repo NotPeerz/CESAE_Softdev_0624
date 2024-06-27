@@ -20,6 +20,7 @@ public class ex02 {
         subtracao = num1 - num2;
         multiplicacao = num1 * num2;
         divisao = num1 / num2;
+
         //Apresentar resultados
         System.out.println("Soma: " + soma);
         System.out.println("Subtracao: " + subtracao);

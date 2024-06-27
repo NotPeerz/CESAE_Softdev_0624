@@ -18,12 +18,12 @@ public class ex02 {
 
         if (salario<=15000){
             imposto=salario*0.2;
-            System.out.println("paga taxa de 20%"+imposto);
+            System.out.println("paga taxa de 20%: "+imposto);
 
 
         } else {
             imposto=salario*0.3;
-            System.out.println("paga taxa de 30%"+imposto);
+            System.out.println("paga taxa de 30%: "+imposto);
         }
 
 
