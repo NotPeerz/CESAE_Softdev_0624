@@ -1,7 +1,12 @@
 package FichaPratica04;
 
+import java.util.Scanner;
+
 public class ex03 {
     public static void main(String[] args) {
+        // Inport Scanner - uso sempre que precisar ler coisas do teclado
+        Scanner input = new Scanner(System.in);
 
+        //Declarar as variaveis.
     }
 }
