@@ -1,19 +1,20 @@
-package FichaPratica02;
+package FichaPratica03;
 
 import java.util.Scanner;
 
-public class ex07 {
+public class ex01 {
     public static void main(String[] args) {
 
         // Inport Scanner - uso sempre que precisar ler coisas do teclado
         Scanner input = new Scanner(System.in);
 
-        //Declarar as variaveis
-        int num1;
+        int x=1;
 
-        //Ler num1
+        while(x<=250){
+            System.out.println(x);
+            x=x+1;
 
-
+        }
 
 
 
