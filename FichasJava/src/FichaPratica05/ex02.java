@@ -18,8 +18,8 @@ public class ex02 {
         }
         for (int i = 0; i < vetor.length; i++) {
             soma = soma + vetor[i];
-            System.out.println("Comissão anual: " + soma);
-        }
 
+        }
+        System.out.println("Comissão anual: " + soma);
     }
 }
