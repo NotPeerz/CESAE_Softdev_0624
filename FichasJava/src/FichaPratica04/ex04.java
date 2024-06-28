@@ -19,8 +19,9 @@ public class ex04 {
         numero=input.nextInt();
 
         for (int divisor = 2;divisor<numero;divisor++){
-            if (numero%divisor==0){
-                primo=false;
+            if (numero % divisor == 0) {
+                primo = false;
+                break;
             }
         }
 
