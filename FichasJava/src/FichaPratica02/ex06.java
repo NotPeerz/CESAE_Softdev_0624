@@ -15,18 +15,15 @@ public class ex06 {
         if(num1>num2){
 
             System.out.println("Maior: "+num1);
-        }else {
+        }else
             System.out.println("Maior: " + num2);
-
-
-        }
 
         if(num1<num2){
 
             System.out.println("Menor: "+num1);
-        }else {
+        }else
             System.out.println("Menor: " + num2);
-        }
+
 
 
     }
