@@ -8,29 +8,27 @@ public class ex06 {
         Scanner input = new Scanner(System.in);
 
         //Declarar variaveis
-        int [] vetor = new int [11];
-        int antecessor;
-        boolean crescente=true;
+        int[] vetor = new int[11];
+        boolean crescente = true;
 
         //Ler vetor
 
         for (int i = 0; i < vetor.length; i++) {
-            System.out.print("Vetor["+i+"]: ");
+            System.out.print("Vetor[" + i + "]: ");
             vetor[i] = input.nextInt();
         }
-        //Ler o antecessor
-        antecessor = vetor[0];
 
-        for (int i = 0; i < vetor.length; i++) {
-            if (vetor[i]<antecessor){
-                antecessor = vetor[i];
-                crescente=false;
+
+        for (int i = 1; i < vetor.length; i++) {
+            if (vetor[i] <=vetor[i-1]){
+                crescente = false;
             }
         }
-        if (crescente){
+        if (crescente) {
             System.out.println("Ordem crescente");
 
-        }else
+        } else {
             System.out.println("Ordem não crescente");
+        }
     }
 }
