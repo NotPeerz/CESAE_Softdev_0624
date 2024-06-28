@@ -28,7 +28,5 @@ public class ex03 {
             }
         } while (palpite != num) ;
             System.out.println("Parabéns, você acertou! " + tentativas + " tentativas");
-
-
     }
 }

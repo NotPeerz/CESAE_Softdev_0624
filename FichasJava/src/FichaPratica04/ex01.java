@@ -51,12 +51,5 @@ public class ex01 {
             continuar = input.next();
 
         } while(continuar.equals("s")); // continuar=="s"
-
-
-
-
-
-
-
     }
 }

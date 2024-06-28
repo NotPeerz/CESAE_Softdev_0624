@@ -2,14 +2,14 @@ package FichaPratica05;
 
 import java.util.Scanner;
 
-public class ex03 {
+public class ex04 {
     public static void main(String[] args) {
         //Inport Scanner
         Scanner input = new Scanner(System.in);
 
         //Declarar variaveis
         int [] vetor = new int [11];
-        int maior;
+        int menor;
 
         //Ler vetor
 
@@ -18,13 +18,13 @@ public class ex03 {
             vetor[i] = input.nextInt();
         }
 
-        maior=vetor[0];
+        menor=vetor[0];
 
         for (int i = 0; i < vetor.length; i++) {
-            if(vetor[i]>maior){
-                maior=vetor[i];
+            if(vetor[i]<menor){
+                menor=vetor[i];
             }
         }
-        System.out.println("Maior: "+maior);
-}
-}
+        System.out.println("Menor: "+menor);
+    }
+    }
