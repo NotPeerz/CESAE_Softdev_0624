@@ -19,6 +19,8 @@ public class ex07 {
 
         maiorPar = 1;
 
+        //Ler vetor
+
         for (int i = 0; i < vetor.length; i++) {
 
             if(vetor[i]%2==0){ // Se o meu numero atual for par
