@@ -15,8 +15,8 @@ public class ex01 {
         }
     }
     public static void main (String[] args) throws FileNotFoundException{
-        //imprimirFicheiro("FicheirosFicha07/exercicio_01.txt"*);
-        //imprimirFicheiro("FicheirosFicha07/exercicio_01_Alternativa01.txt");
-        imprimirFicheiro("FicheirosFicha07/exercicio_01_Alternativa02.txt");
+        imprimirFicheiro("FichasJava/FichaPratica07/exercicio_01.txt");
+        imprimirFicheiro("FichasJava/FichaPratica07/exercicio_01_Alternativa01.txt");
+        imprimirFicheiro("FichasJava/FichaPratica07/exercicio_01_Alternativa02.txt");
     }
 }
