@@ -1,0 +1,50 @@
+body{
+    background-color: bisque;
+    margin: 20px;
+font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+header {
+    text-align: center;
+}
+
+header>img {
+    width: 50%;
+}
+nav{
+    background-color: grey;
+}
+nav img {
+    height: 50px;       
+}
+h1{/*font-family: "Alfa Slab One", serif;*/
+    text-transform: capitalize;
+    text-shadow: 1px 1px 10px red;
+    color: white;
+}
+.fa-brands{
+    font-size: 50px;
+}
+.fa-facebook{
+    color:blue
+}
+.fa-facebook:hover{
+color: red;
+}
+.fa-instagram{
+color: red
+}
+main p{text-align: justify;
+letter-spacing: 0px;
+line-height: 1;
+}
+/* comentário em css */
+#texto1 {
+    background-color: red; 
+    color: white;
+}
+
+.texto2 {
+    background-color: blue; 
+    color: white;
+}
