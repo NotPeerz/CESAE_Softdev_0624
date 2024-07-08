@@ -5,16 +5,23 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class ex05 {
-    public static void imprimirFicheiro() throws FileNotFoundException {
+    public static int somarNumeroFicheiro() throws FileNotFoundException {
 
     Scanner scannerFicheiro = new Scanner(new File("FichasJava/FichaPratica07/exercicio_04.csv"));
 
+    int soma=0;
+
     while (scannerFicheiro.hasNext()) {
-        System.out.println(scannerFicheiro.next());
+        soma+=scannerFicheiro.nextInt();
     }
-        
+
+    return soma;
+        }
+        public static void main(String[] args) throws FileNotFoundException{
+            System.out.println("Soma do Ficheiro" + somarNumeroFicheiro());
         }
 
+
     }
 
-}
+
