@@ -1,5 +1,6 @@
 package PE_ENZO_RAMALHO;
 
+import java.io.File;
 import java.util.Scanner;
 
 import static FichaPratica06.ex05.*;
@@ -9,13 +10,17 @@ public class testepce {
 
         // Inport Scanner - uso sempre que precisar ler coisas do teclado
         Scanner input = new Scanner(System.in);
+        String path;
+        //Scanner scannerFicheiro = new Scanner(new File(path));
+boolean admin = false;
 
-        //Declarar se é CLIENTE ou ADMIN.
+        //Declarar se é cliente ou admin.
+        System.out.println("Olá, Cliente ou ADMIN?");
 
-        int opcao;
+
+            int opcao;
         do {
-
-            // Declarar variaveis
+            if (admin)
 
             //Mostrar opções do menu ADMIN.
 
@@ -38,7 +43,7 @@ public class testepce {
             switch (opcao) {
                 case 1: // Consulta os ficheiros de vendas, clientes e categorias consoante a escolha.
 
-                    System.out.println("");
+                    System.out.println("Vendas, Clientes e Categorias");
 
                     break;
 
@@ -48,54 +53,55 @@ public class testepce {
 
                     break;
 
-                case 3: //
+                case 3: //Total de lucro.
 
+                    System.out.println();
 
                     break;
 
-                case 4: //
+                case 4: //Pesquisa de cliente.
 
                     System.out.println("");
 
                     break;
 
-                case 5: //
+                case 5: //Jogo mais caro.
 
                     System.out.println("");
 
                     break;
 
-                case 6: //
+                case 6: //Melhores Clientes.
 
                     System.out.println("");
 
                     break;
 
-                case 7: //
+                case 7: //Melhor Categoria.
 
                     System.out.println("");
 
                     break;
 
-                case 8: //
+                case 8: //Pesquisa de Vendas.
 
                     System.out.println("");
 
                     break;
 
-                case 9: //
+                case 9: //Top 5 jogos.
 
                     System.out.println("");
 
                     break;
 
-                case 10: //
+                case 10: //Bottom 5 jogos.
 
                     System.out.println("");
 
                     break;
 
-                case 11:
+                case 11: //Sair.
                     System.out.println("Obrigado, até à próxima!");
                     break;
 
@@ -104,13 +110,5 @@ public class testepce {
                     break;
             }
         } while (opcao != 11);
-
-
-        
-//        int opcao;
-//
-//        System.out.println("Olá, Seja bem-vindo ADMIN!");
-//        System.out.println("Escolha uma opção!");
-//        System.out.println("Fichas:1. Vendas, 2. Clientes, 3. Categorias.");
-    }
+}
 }
