@@ -4,7 +4,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-public class ex06 { public static  void pessoaMaisVelha(String path) throws FileNotFoundException {
+public class ex06 {
+    public static  void pessoaMaisVelha(String path) throws FileNotFoundException {
 
     Scanner scannerFicheiro = new Scanner(new File(path));
 
