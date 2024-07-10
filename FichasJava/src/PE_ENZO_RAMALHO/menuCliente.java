@@ -1,20 +1,17 @@
 package PE_ENZO_RAMALHO;
 
-import java.io.File;
 import java.io.FileNotFoundException;
-import java.sql.SQLClientInfoException;
 import java.util.Scanner;
 
 import static FichaPratica07.ex01.imprimirFicheiro;
 
-public class testeLogin {
+public class menuCliente {
     private static String path;
 
     public static void main(String[] args) throws FileNotFoundException {
         Scanner scanner = new Scanner(System.in);
 
         int opcao;
-boolean admin;
 
         do {
             System.out.println("Escolha uma opção.");

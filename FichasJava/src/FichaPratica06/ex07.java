@@ -30,6 +30,6 @@ public class ex07 {
     }
     public static void main(String[] args) {
 
-        imprimirMoldura("g", 4,4);
+        imprimirMoldura("oi", 5,5);
     }
 }
