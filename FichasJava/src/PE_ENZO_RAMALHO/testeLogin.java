@@ -5,8 +5,12 @@ import java.io.FileNotFoundException;
 import java.sql.SQLClientInfoException;
 import java.util.Scanner;
 
+import static FichaPratica07.ex01.imprimirFicheiro;
+
 public class testeLogin {
-    public static void main(String[] args) {
+    private static String path;
+
+    public static void main(String[] args) throws FileNotFoundException {
         Scanner scanner = new Scanner(System.in);
 
         int opcao;
@@ -67,14 +71,10 @@ boolean admin;
                                 break;
 
                             case 3:// Imprimir Catálogo
-                                System.out.println("callOfDuty");
-                                System.out.println("fifa");
-                                System.out.println("hollowKnight");
-                                System.out.println("minecraft");
-                                System.out.println("mortalKombat");
-                                System.out.println("overcooked");
-                                System.out.println("witcher3");
-                                System.out.println("Todos os jogos no Catálogo!");
+
+
+
+
                                 break;
 
                             case 4://Imprimir Catálogos Gráficos
@@ -90,30 +90,40 @@ boolean admin;
 
 
                                 switch (opcao){
-                                    case 1:
+                                    case 1://callofduty
+                                        imprimirFicheiro("FichasJava/GameStart/CatalogoGrafico/callOfDuty.txt");
+
 
                                         break;
                                     case 2:
+                                        imprimirFicheiro("FichasJava/GameStart/CatalogoGrafico/fifa.txt");
 
                                         break;
                                     case 3:
+                                        imprimirFicheiro("FichasJava/GameStart/CatalogoGrafico/hollowKnight.txt");
 
                                         break;
                                     case 4:
+                                        imprimirFicheiro("FichasJava/GameStart/CatalogoGrafico/minecraft.txt");
 
                                         break;
                                     case 5:
+                                        imprimirFicheiro("FichasJava/GameStart/CatalogoGrafico/mortalKombat.txt");
 
                                         break;
                                     case 6:
+                                        imprimirFicheiro("FichasJava/GameStart/CatalogoGrafico/overcooked.txt");
 
                                         break;
                                     case 7:
+                                        imprimirFicheiro("FichasJava/GameStart/CatalogoGrafico/witcher3.txt");
 
                                         break;
+                                    default:
                                 }
                                 break;
-                            case 5:
+                            case 5://Imprimir uma Editora
+                                System.out.println("Editora a pesquisar");
 
                                 break;
                             case 6:
@@ -138,12 +148,4 @@ boolean admin;
 
     }
 
-    public static  void imprimirFicheiro(String path) throws FileNotFoundException {
-
-        Scanner scannerFicheiro = new Scanner(new File(path));{
-            while (scannerFicheiro.hasNextLine()) {
-                String linha = scannerFicheiro.nextLine();
-            }
-        }
-    }
 }

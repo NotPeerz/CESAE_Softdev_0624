@@ -5,7 +5,7 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class ex08 {
-    public class Ex_08 {
+    public static class Ex_08 {
 
     public static double valorTotalVendido(String path) throws FileNotFoundException {
 
