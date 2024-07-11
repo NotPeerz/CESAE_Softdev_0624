@@ -5,7 +5,7 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class ex01 {
-    public static void imprimirFicheiro(String path) throws FileNotFoundException {
+    public static String imprimirFicheiro(String path) throws FileNotFoundException {
 
         Scanner scannerFicheiro = new Scanner(new File(path));
 
@@ -13,6 +13,7 @@ public class ex01 {
             String LinhaAtual = scannerFicheiro.nextLine();
             System.out.println(LinhaAtual);
         }
+        return path;
     }
     public static void main (String[] args) throws FileNotFoundException{
         imprimirFicheiro("FichasJava/FichaPratica07/exercicio_01.txt");

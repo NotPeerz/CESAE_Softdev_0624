@@ -6,7 +6,11 @@ import java.util.Scanner;
 import static FichaPratica07.ex01.imprimirFicheiro;
 
 public class menuCliente {
-    private static String path;
+    public static String imprimirCatalogo() throws FileNotFoundException {
+
+        //o return vai ser para retornar a variavel.
+        return imprimirFicheiro("FichasJava/GameStart/GameStart_Vendas.csv");
+    }
 
     public static void main(String[] args) throws FileNotFoundException {
         Scanner scanner = new Scanner(System.in);
@@ -68,7 +72,9 @@ public class menuCliente {
                                 break;
 
                             case 3:// Imprimir Catálogo
+                                System.out.println("Apresentando o Catálogo de jogos!");
 
+                                System.out.println(imprimirCatalogo());
 
 
 
@@ -142,6 +148,7 @@ public class menuCliente {
             }
         } while (opcao !=3);
         System.out.println("Por favor insira uma opção valida");
+
 
     }
 
