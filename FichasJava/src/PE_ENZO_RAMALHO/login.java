@@ -20,7 +20,6 @@ public class login {
         }
         return admin;
     }
-    public static void main (String[] args) {
 
-    }
 }
+
