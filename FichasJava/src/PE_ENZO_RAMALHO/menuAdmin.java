@@ -67,7 +67,7 @@ public class menuAdmin {
 
                             switch (opcao) {
                                 case 1://Vendas
-                                    //FALTA FAZER IMPRIMIR APENAS AS VENDAS
+                                    //FALTA FAZER IMPRIMIR APENAS AS VENDAS. ja estava feito e perdi
                                     System.out.println("Vendas");
                                     System.out.println(imprimirFicheiro("FichasJava/GameStart/GameStart_Vendas.csv"));
                                     break;
@@ -79,7 +79,7 @@ public class menuAdmin {
                                     break;
 
                                 case 3://Categorias
-                                    //FALTA FAZER IMPRIMIR APENAS AS CATEGORIAS
+                                    //FALTA FAZER IMPRIMIR APENAS AS CATEGORIAS. ja estava feito e perdi
                                     System.out.println("Categorias");
                                     System.out.println(imprimirFicheiro("FichasJava/GameStart/GameStart_Vendas.csv"));
                                     break;
@@ -94,7 +94,7 @@ public class menuAdmin {
                             break;
 
                         case 3: //Total de lucro.
-
+                            //ja estava feito e perdi tambem.
                             System.out.println(imprimirFicheiro("FichasJava/GameStart/GameStart_Vendas.csv"));
 
                             break;
