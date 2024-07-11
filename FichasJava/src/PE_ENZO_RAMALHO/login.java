@@ -4,22 +4,19 @@ import java.util.Scanner;
 
 public class login {
     //boolean para admin ser true or false
-    public static boolean abrirMenu(boolean admin) {
-
-        //scanner para o login e password
-
+    public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        String admin="admin";
+        System.out.println(admin);
 
-        //string login e string password
+        String password= "456";
+        System.out.println("Insira a password: ");
+        password=scanner.next();
 
-        String login = "admin";
-        String password = "456";
 
-        if (admin=true) {
 
         }
-        return admin;
-    }
+
 
 }
 
