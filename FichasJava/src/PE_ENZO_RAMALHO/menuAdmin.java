@@ -42,7 +42,7 @@ public class menuAdmin {
 
                     //Mostrar opções do menu ADMIN.
 
-                    System.out.println("\n\n***** Bem vindo ao GameStart *****");
+                    System.out.println("\n\n***** Bem vindo ao Game Start *****");
                     System.out.println("1. Consulta de Ficheiros: Vendas, Clientes e Categorias");
                     System.out.println("2. Total de Vendas");
                     System.out.println("3. Total de Lucro");

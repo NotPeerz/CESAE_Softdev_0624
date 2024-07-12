@@ -9,9 +9,9 @@ public class login {
         String admin="admin";
         System.out.println(admin);
 
-        String password= "456";
+        double password= 456;
         System.out.println("Insira a password: ");
-        password=scanner.next();
+        password=scanner.nextDouble();
 
 
 
