@@ -7,6 +7,20 @@ import java.util.Scanner;
 import static FichaPratica07.ex01.imprimirFicheiro;
 
 public class login2{
+    public static double lerVendas(String path) throws FileNotFoundException {
+        Scanner scannerFicheiro = new Scanner(new File(path));
+        double vendas = 0;
+        String linha = scannerFicheiro.nextLine();
+
+        while (scannerFicheiro.hasNextLine()) {
+            //corrigir para ler apenas as vendas sem ser somadas
+            linha = scannerFicheiro.nextLine();
+            String[] linhaDividida = linha.split(";");
+            vendas=Double.parseDouble(linhaDividida[5]);
+        }
+        return vendas;
+    }
+
     public static void main(String[] args) throws FileNotFoundException{
     Scanner scanner = new Scanner(System.in);
         int opcao;

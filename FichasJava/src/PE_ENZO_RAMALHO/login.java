@@ -5,14 +5,29 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 import static FichaPratica07.ex01.imprimirFicheiro;
+import static FichaPratica07.ex07.Ex_07.contarLinhasFicheiro;
 
 public class login {
     public static String imprimirCatalogo() throws FileNotFoundException {
 
-        //o return vai ser para retornar a variavel.
+        //o return vai ser para chamar a função
         return imprimirFicheiro("FichasJava/GameStart/GameStart_Vendas.csv");
     }
     //Função que imprime o Catalogo do ficheiro.
+
+    public static double lerVendas(String path) throws FileNotFoundException {
+        Scanner scannerFicheiro = new Scanner(new File(path));
+        double vendas = 0;
+        String linha = scannerFicheiro.nextLine();
+        while (scannerFicheiro.hasNextLine()) {
+            //corrigir para ler apenas as vendas sem ser somadas
+            linha = scannerFicheiro.nextLine();
+            String[] linhaDividida = linha.split(";");
+            vendas=Double.parseDouble(linhaDividida[5]);
+        }
+        return vendas;
+    }
+    //Função que vai ler o ficheiro de vendas imprimindo apenas as vendas, sem soma-las.
 
     public static double valorTotalVendido(String path) throws FileNotFoundException {
         Scanner scannerFicheiro = new Scanner(new File(path));
@@ -28,19 +43,73 @@ public class login {
     }
     //Função que calcula o valor total das vendas.(pelo ficheiro de vendas
 
-    public static double lerVendas(String path) throws FileNotFoundException {
-        Scanner scannerFicheiro = new Scanner(new File(path));
-        double vendas = 0;
-        String linha = scannerFicheiro.nextLine();
-
-        while (scannerFicheiro.hasNextLine()) {
-            //corrigir para ler apenas as vendas sem ser somadas
-            linha = scannerFicheiro.nextLine();
+    public static String[][] lerCsvParaMatriz(String path) throws FileNotFoundException {
+        Scanner scFicheiro = new Scanner(new File(path));
+        int quantidadeParametros = 0;
+        if (scFicheiro.hasNextLine()) quantidadeParametros = scFicheiro.nextLine().split(";").length;
+        String[][] matrizCompleta = new String[contarLinhasFicheiro(path)-1][quantidadeParametros];
+        String linha;
+        int contadorLinhaMatriz = 0;
+        while (scFicheiro.hasNextLine()) {
+            linha = scFicheiro.nextLine();
             String[] linhaDividida = linha.split(";");
-            vendas=Double.parseDouble(linhaDividida[5]);
+            for (int coluna = 0; coluna < quantidadeParametros; coluna++) {
+                matrizCompleta[contadorLinhaMatriz][coluna] = linhaDividida[coluna];
+            }
+            contadorLinhaMatriz++;
         }
-        return vendas;
+        return matrizCompleta;
     }
+    //Função para ler vendas.(pelo ficheiro de vendas)
+
+    public static String[] obterValores(String path, String campo, String delimitador) throws FileNotFoundException {
+        Scanner scanner = new Scanner(new File(path));
+        if (scanner.hasNextLine()) return null;
+        String linha = scanner.nextLine();
+        if (linha.contains(campo)) {
+            String[] campos = linha.split(delimitador);
+            int indexCampo = -1;
+            for (int i = 0; i < campos.length; i++) {
+                if (campos[i].equals(campo)) indexCampo = i;
+            }
+            if (indexCampo > -1) {
+                int quantidadeLinhas = contarLinhasFicheiro(path);
+                String[] valoresCampoEspecifico = new String[quantidadeLinhas];
+                for (int i = 0; i < quantidadeLinhas; i++) {
+                    valoresCampoEspecifico[i] = scanner.nextLine().split(delimitador)[indexCampo];
+                }
+                return valoresCampoEspecifico;
+            }
+        }
+        return null;
+    }
+    //Função que obtem os valores.
+
+    public static void exibirTotalDeLucro(String pathVendas, String pathCategorias) throws FileNotFoundException {
+        String[] valoresNomeCategoria, valoresPercentagemCategoria, valoresCategoriaVendas, valoresValorVendas;
+        valoresNomeCategoria = obterValores(pathCategorias, "nomeCategoria", ";");
+        valoresPercentagemCategoria = obterValores(pathCategorias, "percentagemMargem", ";");
+        valoresCategoriaVendas = obterValores(pathVendas, "categoria", ";");
+        valoresValorVendas = obterValores(pathVendas, "valor", ";");
+        double lucroTotal = 0;
+
+        for (int i = 0; i < valoresCategoriaVendas.length; i++) {
+            String categoria = valoresCategoriaVendas[i];
+            int indexNomeCategoria = -1;
+            for (int j = 0; j < valoresNomeCategoria.length; j++) {
+                if (valoresNomeCategoria[j].equals(categoria)) indexNomeCategoria = j;
+            }
+
+            if (indexNomeCategoria > -1) {
+                double porcentagemLucro = Double.parseDouble(valoresPercentagemCategoria[indexNomeCategoria]);
+                double valorVenda = Double.parseDouble(valoresValorVendas[i]);
+
+                lucroTotal += (valorVenda * porcentagemLucro) / 100;
+            }
+        }
+        System.out.println("Lucro total das vendas por categoria: " + lucroTotal);
+    }
+    //Função que denomina o lucro.
 
     public static String admin= "admin";
     public static String adminSenha = "456";
@@ -50,7 +119,7 @@ public class login {
         Scanner scanner = new Scanner(System.in);
         //inicio do programa.
         while (true) {
-            System.out.println("******Bem vindo ao GameStar******");
+            System.out.println("\n 👾👾👾Bem vindo ao GameStart👾👾👾");
             System.out.println("1. Admin");
             System.out.println("2. Cliente");
             System.out.println("3. Sair");
@@ -96,8 +165,8 @@ public class login {
     public static void adminMenu(Scanner scanner) throws FileNotFoundException {
         while (true) {
             //dando boas vindas ao mestre. xD
-            System.out.println("Olá Admin, Seja bem-vindo!");
-            System.out.println("Aqui está o menu Admin: ");
+            System.out.println("Olá Admin, Seja bem-vindo!🐱‍👤");
+            System.out.println("Aqui está o menu Admin ✔: ");
             // adicionar menu admin
             System.out.println("1. Consulta de Ficheiros: Vendas, Clientes e Categorias");
             System.out.println("2. Total de Vendas");
@@ -127,18 +196,18 @@ public class login {
                         case 1://Vendas
                             //FALTA FAZER IMPRIMIR APENAS AS VENDAS.
                             System.out.println("Vendas: ");
-                            System.out.println(lerVendas("FichasJava/GameStart/GameStart_Vendas.csv"));
+                            System.out.println(lerCsvParaMatriz("FichasJava/GameStart/GameStart_Vendas.csv"));
                             break;
 
                         case 2://Clientes
                             //FALTA FAZER IMPRIMIR APENAS OS CLIENTES
-                            System.out.println("Clientes");
+                            System.out.println("Clientes: ");
                             System.out.println(imprimirFicheiro(""));
                             break;
 
                         case 3://Categorias
                             //FALTA FAZER IMPRIMIR APENAS AS CATEGORIAS. ja estava feito e perdi
-                            System.out.println("Categorias");
+                            System.out.println("Categorias: ");
                             System.out.println(imprimirFicheiro(""));
                             break;
                         default:
@@ -146,6 +215,7 @@ public class login {
 
                     break;
                 case 2:
+                    System.out.println("Aqui está o total de vendas Admin!!");
                     System.out.println(valorTotalVendido("FichasJava/GameStart/GameStart_Vendas.csv"));
                     break;
 
@@ -227,9 +297,9 @@ public class login {
                         }
                         if (triangular%5==0){
                             System.out.println("Lugar de vaga: "+triangular);
-                            System.out.println("Vagas calculadas com sucesso!");
                         }
                     }
+                    System.out.println("Vagas calculadas com sucesso!");
                     break;
 
                 case 3:// Imprimir Catálogo
