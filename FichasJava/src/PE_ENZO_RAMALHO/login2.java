@@ -10,15 +10,14 @@ public class login2{
     public static void main(String[] args) throws FileNotFoundException{
     Scanner scanner = new Scanner(System.in);
         int opcao;
-        boolean admin=false;
+        boolean admin=true;
 
         System.out.println("admin ou cliente? ");
         String usuario = scanner.nextLine();
 
-        System.out.println("Digite a senha: ");
-        String senha = scanner.nextLine();
-
         if (oiAdmin(usuario)) {
+            System.out.println("Digite a senha: ");
+            String senha = scanner.nextLine();
 
             if (senha.equals("admin123")) {
                 System.out.println("Seja bem-vindo Admin!");
@@ -174,7 +173,7 @@ public class login2{
 
     private static boolean oiAdmin(String usuario) {
 
-        return false;
+        return true;
     }
 
 }

@@ -188,8 +188,6 @@ boolean admin;
 
                                 System.out.println(imprimirCatalogo());
 
-
-
                                 break;
 
                             case 4://Imprimir Catálogos Gráficos
