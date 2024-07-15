@@ -7,7 +7,6 @@ import static FichaPratica07.ex01.imprimirFicheiro;
 
 public class menuPrincipal {
     public static String imprimirCatalogo() throws FileNotFoundException {
-
         //o return vai ser para retornar a variavel.
         return imprimirFicheiro("FichasJava/GameStart/GameStart_Vendas.csv");
     }

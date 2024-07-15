@@ -198,7 +198,7 @@ public class TestePE {
     public static void adminMenu(Scanner scanner) throws FileNotFoundException {
         while (true) {
             //dando boas vindas ao admin.
-            System.out.println("Olá Admin, Seja bem-vindo!🐱‍👤");
+            System.out.println("Olá Admin, Seja bem-vindo!");
             System.out.println("Aqui está o menu Admin ✔: ");
             // adicionar menu admin
             System.out.println("1. Consulta de Ficheiros: Vendas, Clientes e Categorias");
