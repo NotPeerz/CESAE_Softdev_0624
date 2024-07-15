@@ -14,6 +14,7 @@ public class login {
         //o return vai ser para chamar a função
         return imprimirFicheiro("FichasJava/GameStart/GameStart_Vendas.csv");
     }
+    //imprime o catalogo
     //Função que imprime o Catalogo do ficheiro.
 
 //   public static void lerVendas(String path) throws FileNotFoundException {
@@ -169,11 +170,11 @@ public class login {
                     }
                     break;
 
-                    case 2:
+                    case 2:// menu do cliente
                         clientMenu(scanner);
                         break;
 
-                        case 3:
+                        case 3:// sair
                             imprimirFicheiro("FichasJava/src/PE_ENZO_RAMALHO/copyEnzo.txt");
                             System.out.println("Saindo...");
                             return;
@@ -182,6 +183,7 @@ public class login {
             }
         }
     }
+    //função main
     public static boolean adminLogin(Scanner scanner) {
         System.out.println("Digite seu usuario: ");
         String usuario = scanner.nextLine();
@@ -195,7 +197,7 @@ public class login {
 
     public static void adminMenu(Scanner scanner) throws FileNotFoundException {
         while (true) {
-            //dando boas vindas ao mestre. xD
+            //dando boas vindas ao admin.
             System.out.println("Olá Admin, Seja bem-vindo!🐱‍👤");
             System.out.println("Aqui está o menu Admin ✔: ");
             // adicionar menu admin
@@ -224,19 +226,19 @@ public class login {
 
                     switch (opcao) {
                         case 1://Vendas
-                            //FALTA FAZER IMPRIMIR APENAS AS VENDAS.
+                            //imprime as vendas
                             System.out.println("Vendas: ");
                             lerVendas("FichasJava/GameStart/GameStart_Vendas.csv");
                             break;
 
                         case 2://Clientes
-                            //FALTA FAZER IMPRIMIR APENAS OS CLIENTES
+                            //faz pesquisa cliente
                             System.out.println("Clientes: ");
                             System.out.println(imprimirFicheiro("FichasJava/GameStart/GameStart_Clientes.csv"));
                             break;
 
                         case 3://Categorias
-                            //FALTA FAZER IMPRIMIR APENAS AS CATEGORIAS. ja estava feito e perdi
+                            //imprime as categorias
                             System.out.println("Categorias: ");
                             System.out.println(imprimirFicheiro(""));
                             break;
@@ -273,11 +275,11 @@ public class login {
                     System.out.println(imprimirFicheiro("FichasJava/GameStart/GameStart_Vendas.csv"));
                     break;
 
-                case 9: //Top 5 jogos.nao feito
+                case 9: //Top 5 jogos.
                     System.out.println(imprimirFicheiro("FichasJava/GameStart/GameStart_Vendas.csv"));
                     break;
 
-                case 10: //Bottom 5 jogos.nao feito
+                case 10: //Bottom 5 jogos.
                     System.out.println(imprimirFicheiro("FichasJava/GameStart/GameStart_Vendas.csv"));
                     break;
 
@@ -287,6 +289,7 @@ public class login {
                     break;
                 default:
                     System.out.println("Opção inválida,tente novamente!");
+                    return;
             }
             }
         }
