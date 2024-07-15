@@ -6,6 +6,7 @@ import java.util.Scanner;
 
 import static FichaPratica07.ex01.imprimirFicheiro;
 import static FichaPratica07.ex07.Ex_07.contarLinhasFicheiro;
+import static PE_ENZO_RAMALHO.login2.lerVendas;
 
 public class login {
     public static String imprimirCatalogo() throws FileNotFoundException {
@@ -15,19 +16,49 @@ public class login {
     }
     //Função que imprime o Catalogo do ficheiro.
 
-    public static double lerVendas(String path) throws FileNotFoundException {
-        Scanner scannerFicheiro = new Scanner(new File(path));
-        double vendas = 0;
-        String linha = scannerFicheiro.nextLine();
-        while (scannerFicheiro.hasNextLine()) {
-            //corrigir para ler apenas as vendas sem ser somadas
-            linha = scannerFicheiro.nextLine();
-            String[] linhaDividida = linha.split(";");
-            vendas=Double.parseDouble(linhaDividida[5]);
-        }
-        return vendas;
-    }
+//   public static void lerVendas(String path) throws FileNotFoundException {
+//        Scanner scannerFicheiro = new Scanner(new File(path));
+//         int vendas = 0;
+//        String linha = scannerFicheiro.nextLine();
+//        while (scannerFicheiro.hasNextLine()) {
+//            linha = scannerFicheiro.nextLine();
+//            String[] linhaDividida = linha.split(";");
+//            String vendaId=linhaDividida[0];
+//            if (seNumerico(vendaId)) {
+//                vendas = Integer.parseInt(vendaId);
+//            }else{
+//                System.out.println("Erro");
+//            }
+//        }
+//        return vendas;
+//    }
     //Função que vai ler o ficheiro de vendas imprimindo apenas as vendas, sem soma-las.
+
+   // public static boolean seNumerico(String)
+
+//    public static int pesquisaCliente(String path) throws FileNotFoundException {
+//        Scanner scannerFicheiro = new Scanner(new File(path));
+//        int idCliente = 0;
+//        String linha = scannerFicheiro.nextLine();
+//
+//        while (scannerFicheiro.hasNextLine()) {
+//            linha = scannerFicheiro.nextLine();
+//            String[] linhaDividida = linha.split(";");
+//            idCliente=Integer.parseInt(linhaDividida[0]);
+//        }
+//        return idCliente;
+//    }
+//public static int imprimirFicheiroCliente(String path) throws FileNotFoundException {
+//    Scanner scannerFicheiro = new Scanner(new File(path));
+//    int idCliente = 0;
+//    while ( scannerFicheiro.hasNextLine()){
+//        String linha = scannerFicheiro.nextLine();
+//        String[] linhaDividida = linha.split(";");
+//        idCliente= Integer.parseInt(linhaDividida[0]);
+//
+//    }
+//    return idCliente;
+//}
 
     public static double valorTotalVendido(String path) throws FileNotFoundException {
         Scanner scannerFicheiro = new Scanner(new File(path));
@@ -125,9 +156,7 @@ public class login {
             System.out.println("3. Sair");
             System.out.println("Escolha uma opção");
             int opcao = scanner.nextInt();
-
             scanner.nextLine();
-
             switch (opcao) {
                 case 1:
                     if (adminLogin(scanner)) {
@@ -135,6 +164,7 @@ public class login {
                         adminMenu(scanner);
                         //adminMenu scanner para ler a função associada ao menu do admin
                     }else{
+                        imprimirFicheiro("FichasJava/src/PE_ENZO_RAMALHO/copyEnzo.txt");
                         System.out.println("Saindo...");
                     }
                     break;
@@ -144,6 +174,7 @@ public class login {
                         break;
 
                         case 3:
+                            imprimirFicheiro("FichasJava/src/PE_ENZO_RAMALHO/copyEnzo.txt");
                             System.out.println("Saindo...");
                             return;
                 default:
@@ -181,7 +212,6 @@ public class login {
             System.out.println("11. Sair");
             System.out.println("Selecione uma opção: ");
             int opcao = scanner.nextInt();
-
             scanner.nextLine();
 
             switch (opcao) {
@@ -196,13 +226,13 @@ public class login {
                         case 1://Vendas
                             //FALTA FAZER IMPRIMIR APENAS AS VENDAS.
                             System.out.println("Vendas: ");
-                            System.out.println(lerCsvParaMatriz("FichasJava/GameStart/GameStart_Vendas.csv"));
+                            lerVendas("FichasJava/GameStart/GameStart_Vendas.csv");
                             break;
 
                         case 2://Clientes
                             //FALTA FAZER IMPRIMIR APENAS OS CLIENTES
                             System.out.println("Clientes: ");
-                            System.out.println(imprimirFicheiro(""));
+                            System.out.println(imprimirFicheiro("FichasJava/GameStart/GameStart_Clientes.csv"));
                             break;
 
                         case 3://Categorias
@@ -212,15 +242,15 @@ public class login {
                             break;
                         default:
                     }
-
                     break;
+
                 case 2:
                     System.out.println("Aqui está o total de vendas Admin!!");
                     System.out.println(valorTotalVendido("FichasJava/GameStart/GameStart_Vendas.csv"));
                     break;
 
                 case 3://Total lucro
-                    System.out.println(imprimirFicheiro("FichasJava/GameStart/GameStart_Vendas.csv"));
+                    exibirTotalDeLucro("FichasJava/GameStart/GameStart_Vendas.csv","FichasJava/GameStart/GameStart_Categorias.csv");
                     break;
 
                 case 4: //Pesquisa de cliente.
@@ -243,15 +273,16 @@ public class login {
                     System.out.println(imprimirFicheiro("FichasJava/GameStart/GameStart_Vendas.csv"));
                     break;
 
-                case 9: //Top 5 jogos.
+                case 9: //Top 5 jogos.nao feito
                     System.out.println(imprimirFicheiro("FichasJava/GameStart/GameStart_Vendas.csv"));
                     break;
 
-                case 10: //Bottom 5 jogos.
+                case 10: //Bottom 5 jogos.nao feito
                     System.out.println(imprimirFicheiro("FichasJava/GameStart/GameStart_Vendas.csv"));
                     break;
 
                 case 11: //Sair.
+                    imprimirFicheiro("FichasJava/src/PE_ENZO_RAMALHO/copyEnzo.txt");
                     System.out.println("Obrigado, até à próxima!");
                     break;
                 default:
@@ -344,19 +375,24 @@ public class login {
                     }
                     break;
 
-                case 5://Imprimir uma Editora
-                    System.out.println("Editora a pesquisar");
+                case 5://Imprimir uma Editora nao tem
+                    System.out.println("Editora a pesquisar: ");
                     break;
 
-                case 6:
-
+                case 6://Imprimir catalogo categoria, igual o da editora.
+                    System.out.println("Catalogo Categoria: ");
+                    //nao tem
                     break;
 
                 case 7:
-
+                    //imprimir jogo mais recente
+                    System.out.println("Este é o jogo mais recente: ");
+                    // nao tem
                     break;
+
                 case 8:
                     System.out.println("Saindo...");
+                    imprimirFicheiro("FichasJava/src/PE_ENZO_RAMALHO/copyEnzo.txt");
                     return;
                 default:
                     System.out.println("Opção inválida,tente novamente!");
