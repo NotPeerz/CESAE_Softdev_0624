@@ -8,7 +8,7 @@ import static FichaPratica07.ex01.imprimirFicheiro;
 import static FichaPratica07.ex07.Ex_07.contarLinhasFicheiro;
 import static PE_ENZO_RAMALHO.login2.lerVendas;
 
-public class login {
+public class TestePE {
     public static String imprimirCatalogo() throws FileNotFoundException {
 
         //o return vai ser para chamar a função
@@ -293,6 +293,8 @@ public class login {
             }
             }
         }
+        // função do menu do admin
+
         public static void clientMenu(Scanner scanner) throws FileNotFoundException {
         while (true) {
             System.out.println("Menu Cliente: ");
@@ -402,4 +404,5 @@ public class login {
             }
             }
         }
+        //função do menu do cliente
         }
