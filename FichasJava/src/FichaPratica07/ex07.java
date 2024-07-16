@@ -3,9 +3,7 @@ package FichaPratica07;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
-
-public class ex07 {
-    public class Ex_07 {
+    public class ex07 {
 
     public static int contarLinhasFicheiro(String path) throws FileNotFoundException {
         Scanner scannerFicheiro = new Scanner(new File(path));
@@ -32,5 +30,4 @@ public class ex07 {
         System.out.println("Numero Palavras: "+contarPalavrasFicheiro("FichasJava/FichaPratica07/exercicio_07.txt"));
     }
 
-}
 }

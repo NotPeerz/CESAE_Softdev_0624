@@ -5,25 +5,46 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 import static FichaPratica07.ex01.imprimirFicheiro;
-import static FichaPratica07.ex07.Ex_07.contarLinhasFicheiro;
+import static FichaPratica07.ex07.contarLinhasFicheiro;
 import static PE_ENZO_RAMALHO.login2.lerVendas;
 
 public class TestePE {
-    public static void imprimirFicheiroCliente() throws FileNotFoundException {
-        Scanner scannerFicheiro = new Scanner(new File("FichasJava/FichaPratica07/exercicio_04.csv"));
-        while (scannerFicheiro.hasNext()) {
+    public static String imprimirPesquisaCliente(String path) throws FileNotFoundException {
+        Scanner scannerFicheiro = new Scanner(new File("FichasJava/GameStart/GameStart_Clientes.csv"));
+        Scanner scanner = new Scanner(System.in);
+        while (scannerFicheiro.hasNextLine()) {
+            int idCliente;
+            System.out.println("Pesquisar id Cliente:");
             String linha = scannerFicheiro.nextLine();
             String[] linhaDividida = linha.split(";");
-            System.out.println(linhaDividida);
+            idCliente=scanner.nextInt();
+            if(idCliente>0 && idCliente<=90) {
+                System.out.print(linhaDividida[1]+" ");
+                System.out.print(linhaDividida[2]+" ");
+                System.out.print(linhaDividida[3]+" ");
+            }
         }
+        return imprimirPesquisaCliente("FichasJava/GameStart/GameStart_Clientes.csv");
+ //falta implementar para não ser um ciclo infinito e dar espaçamento entre as informações.
     }
-    public static String imprimirCatalogo() throws FileNotFoundException {
 
-        //o return vai ser para chamar a função
-        return imprimirFicheiro("FichasJava/GameStart/GameStart_Vendas.csv");
-    }
-    //imprime o catalogo
-    //Função que imprime o Catalogo do ficheiro.
+
+//    public static String imprimirVendas(String path) throws FileNotFoundException {
+//        Scanner scannerFicheiro = new Scanner(new File(""));
+//        while (scannerFicheiro.hasNextLine()) {
+//            String linha = scannerFicheiro.nextLine();
+//            String[] linhaDividida = linha.split(";");
+//            System.out.print(linhaDividida[1]);
+//            System.out.print(linhaDividida[2]);
+//            System.out.print(linhaDividida[3]);
+//        }
+//        return imprimirVendas("FichasJava/GameStart/GameStart_Clientes.csv");
+//    }
+
+//    public static String imprimirCatalogo() throws FileNotFoundException {
+//        return imprimirFicheiro("FichasJava/GameStart/GameStart_Vendas.csv");
+//    }
+//    //Função que imprime o Catalogo do ficheiro.
 
 //   public static void lerVendas(String path) throws FileNotFoundException {
 //        Scanner scannerFicheiro = new Scanner(new File(path));
@@ -44,7 +65,7 @@ public class TestePE {
     //Função que vai ler o ficheiro de vendas imprimindo apenas as vendas, sem soma-las.
    // public static boolean seNumerico(String)
 
-//    public static int pesquisaCliente(String path) throws FileNotFoundException {
+//    public static String pesquisaCliente(String path) throws FileNotFoundException {
     //Pesquisa cliente: dado um idCliente, imprima toas as informações associadas a esse cliente(nome, contacto, email)
     //path ficheiro clientes: "FichasJava/GameStart/GameStart_Clientes.csv"
 //        Scanner scannerFicheiro = new Scanner(new File(path));
@@ -228,7 +249,7 @@ public class TestePE {
 
             switch (opcao) {
                 case 1:
-                    System.out.println("Escolhe um Ficheiro.");
+                    System.out.println("Escolha um Ficheiro.");
                     System.out.println("1. Vendas");
                     System.out.println("2. Clientes");
                     System.out.println("3. Categorias");
@@ -238,7 +259,7 @@ public class TestePE {
                         case 1://Vendas
                             //imprime as vendas
                             System.out.println("Vendas: ");
-                            lerVendas("FichasJava/GameStart/GameStart_Vendas.csv");
+                            System.out.println(imprimirFicheiro("FichasJava/GameStart/GameStart_Vendas.csv"));
                             break;
 
                         case 2://Clientes
@@ -250,7 +271,7 @@ public class TestePE {
                         case 3://Categorias
                             //imprime as categorias
                             System.out.println("Categorias: ");
-                            System.out.println(imprimirFicheiro(""));
+                            System.out.println(imprimirFicheiro("FichasJava/GameStart/GameStart_Categorias.csv"));
                             break;
                         default:
                     }
@@ -266,7 +287,7 @@ public class TestePE {
                     break;
 
                 case 4: //Pesquisa de cliente.
-                    System.out.println(imprimirFicheiro("FichasJava/GameStart/GameStart_Vendas.csv"));
+                    imprimirPesquisaCliente("FichasJava/GameStart/GameStart_Clientes.csv");
                     break;
 
                 case 5: //Jogo mais caro.
@@ -350,7 +371,7 @@ public class TestePE {
 
                 case 3:// Imprimir Catálogo
                     System.out.println("Apresentando o Catálogo de jogos!");
-                    System.out.println(imprimirCatalogo());
+                    System.out.println(imprimirFicheiro("FichasJava/GameStart/GameStart_Vendas.csv"));
                     break;
 
                 case 4://Imprimir Catálogos Gráficos

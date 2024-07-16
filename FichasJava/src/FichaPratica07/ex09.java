@@ -5,8 +5,7 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 import static FichaPratica07.ex01.imprimirFicheiro;
-import static FichaPratica07.ex07.Ex_07.contarLinhasFicheiro;
-
+import static FichaPratica07.ex07.contarLinhasFicheiro;
 public class ex09 {
     public static String[][] lerCsvParaMatriz(String path) throws FileNotFoundException {
         String[][] matrizCompleta = new String[contarLinhasFicheiro(path) - 1][4];
