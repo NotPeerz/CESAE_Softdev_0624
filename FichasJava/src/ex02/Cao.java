@@ -1,5 +1,4 @@
 package ex02;
-
 public class Cao {
     private String nome;
     private String raca;

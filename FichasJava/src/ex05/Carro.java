@@ -8,14 +8,7 @@ public class Carro {
         this.modelo=modelo;
         this.anoFabrica=anoFabrica;
     }
-    public void setMarca(String marca){
-        this.marca=marca;
+    public void ligar(){
+        System.out.println("O carro está ligado.");
     }
-    public void setModelo(String modelo){
-        this.modelo=modelo;
-    }
-    public void setAnoFabrica(int anoFabrica){
-        this.anoFabrica=anoFabrica;
-    }
-
 }

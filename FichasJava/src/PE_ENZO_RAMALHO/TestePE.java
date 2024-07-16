@@ -12,16 +12,17 @@ public class TestePE {
     public static String imprimirPesquisaCliente(String path) throws FileNotFoundException {
         Scanner scannerFicheiro = new Scanner(new File("FichasJava/GameStart/GameStart_Clientes.csv"));
         Scanner scanner = new Scanner(System.in);
+        int idCliente;
+        System.out.println("Pesquisar id Cliente🔎:");
+        idCliente=scanner.nextInt();
         while (scannerFicheiro.hasNextLine()) {
-            int idCliente;
-            System.out.println("Pesquisar id Cliente:");
             String linha = scannerFicheiro.nextLine();
             String[] linhaDividida = linha.split(";");
-            idCliente=scanner.nextInt();
             if(idCliente>0 && idCliente<=90) {
-                System.out.print(linhaDividida[1]+" ");
-                System.out.print(linhaDividida[2]+" ");
-                System.out.print(linhaDividida[3]+" ");
+                System.out.println(linhaDividida[1]+" ");
+                System.out.println(linhaDividida[2]+" ");
+                System.out.println(linhaDividida[3]+" ");
+                System.out.println("🔎🔎🔎🔎🔎🔎🔎🔎🔎🔎🔎🔎🔎🔎🔎🔎🔎");
             }
         }
         return imprimirPesquisaCliente("FichasJava/GameStart/GameStart_Clientes.csv");
@@ -146,7 +147,7 @@ public class TestePE {
         }
         return null;
     }
-    //Função que obtem os valores.
+    //Função que obtem os valores para o lucro.
 
     public static void exibirTotalDeLucro(String pathVendas, String pathCategorias) throws FileNotFoundException {
         String[] valoresNomeCategoria, valoresPercentagemCategoria, valoresCategoriaVendas, valoresValorVendas;
