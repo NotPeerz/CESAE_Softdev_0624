@@ -9,6 +9,14 @@ import static FichaPratica07.ex07.Ex_07.contarLinhasFicheiro;
 import static PE_ENZO_RAMALHO.login2.lerVendas;
 
 public class TestePE {
+    public static void imprimirFicheiroCliente() throws FileNotFoundException {
+        Scanner scannerFicheiro = new Scanner(new File("FichasJava/FichaPratica07/exercicio_04.csv"));
+        while (scannerFicheiro.hasNext()) {
+            String linha = scannerFicheiro.nextLine();
+            String[] linhaDividida = linha.split(";");
+            System.out.println(linhaDividida);
+        }
+    }
     public static String imprimirCatalogo() throws FileNotFoundException {
 
         //o return vai ser para chamar a função
@@ -34,10 +42,11 @@ public class TestePE {
 //        return vendas;
 //    }
     //Função que vai ler o ficheiro de vendas imprimindo apenas as vendas, sem soma-las.
-
    // public static boolean seNumerico(String)
 
 //    public static int pesquisaCliente(String path) throws FileNotFoundException {
+    //Pesquisa cliente: dado um idCliente, imprima toas as informações associadas a esse cliente(nome, contacto, email)
+    //path ficheiro clientes: "FichasJava/GameStart/GameStart_Clientes.csv"
 //        Scanner scannerFicheiro = new Scanner(new File(path));
 //        int idCliente = 0;
 //        String linha = scannerFicheiro.nextLine();
@@ -47,15 +56,16 @@ public class TestePE {
 //            String[] linhaDividida = linha.split(";");
 //            idCliente=Integer.parseInt(linhaDividida[0]);
 //        }
-//        return idCliente;
+//        return pesquisaCliente;
 //    }
+
 //public static int imprimirFicheiroCliente(String path) throws FileNotFoundException {
 //    Scanner scannerFicheiro = new Scanner(new File(path));
 //    int idCliente = 0;
 //    while ( scannerFicheiro.hasNextLine()){
 //        String linha = scannerFicheiro.nextLine();
 //        String[] linhaDividida = linha.split(";");
-//        idCliente= Integer.parseInt(linhaDividida[0]);
+//        idCliente= Integer.parseInt(linhaDividida[1]);
 //
 //    }
 //    return idCliente;
