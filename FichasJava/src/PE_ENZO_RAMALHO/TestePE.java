@@ -8,7 +8,16 @@ import static FichaPratica07.ex01.imprimirFicheiro;
 import static FichaPratica07.ex07.contarLinhasFicheiro;
 
 public class TestePE {
-    public static String imprimirPesquisaCliente(String path) throws FileNotFoundException {
+    public static String[] imprimirCatalogoJogos(String path) throws FileNotFoundException {
+    Scanner scanner = new Scanner(System.in);
+    int indice;
+      //  for (int i = 0; i < indice.length; i++) {
+      //      System.out.print();
+            
+       // }
+        return imprimirCatalogoJogos("FichasJava/GameStart/GameStart_Vendas.csv");
+    }
+    public static int imprimirPesquisaCliente(String path) throws FileNotFoundException {
         //scanner ficheiro para armazenar informações do ficheiro
         Scanner scannerFicheiro = new Scanner(new File("FichasJava/GameStart/GameStart_Clientes.csv"));
         //scanner para a variavel
@@ -32,7 +41,7 @@ public class TestePE {
                 System.out.println("🔎🔎🔎🔎🔎🔎🔎🔎🔎🔎🔎🔎🔎🔎🔎🔎🔎");
             }
         }
-        return imprimirPesquisaCliente("FichasJava/GameStart/GameStart_Clientes.csv");
+        return idCliente;
  //falta implementar para não ser um ciclo infinito e dar espaçamento entre as informações.
     }
     //Função que pesquisa o Cliente pelo seu id.
@@ -41,8 +50,7 @@ public class TestePE {
         //variavel para o valor totalVendido sendo double para valores nao inteiros.
         double totalVendido = 0;
         String linha = scannerFicheiro.nextLine();
-//ciclo
-        while (scannerFicheiro.hasNextLine()) {
+        while (scannerFicheiro.hasNextLine()) { //ciclo
             //enquanto ficheiro tiver proxima linha, faz o scan da linha.
             linha = scannerFicheiro.nextLine();
             String[] linhaDividida = linha.split(";"); //linha dividida por ";"
@@ -73,7 +81,7 @@ public class TestePE {
 
     public static String[] obterValores(String path, String campo, String delimitador) throws FileNotFoundException {
         Scanner scanner = new Scanner(new File(path));
-        if (scanner.hasNextLine()) return null; //se o ficheiro tiver proxima linha returna nulo
+        if (scanner.hasNextLine()) return null;
         String linha = scanner.nextLine();
         if (linha.contains(campo)) {
             String[] campos = linha.split(delimitador);
@@ -319,7 +327,6 @@ public class TestePE {
 
                 case 3:// Imprimir Catálogo
                     System.out.println("Apresentando o Catálogo de jogos!");
-                    System.out.println(imprimirFicheiro("FichasJava/GameStart/GameStart_Vendas.csv"));
                     break;
 
                 case 4://Imprimir Catálogos Gráficos
@@ -377,6 +384,7 @@ public class TestePE {
                 case 7:
                     //imprimir jogo mais recente
                     System.out.println("Este é o jogo mais recente: ");
+                    System.out.println(imprimirFicheiro("FichasJava/GameStart/GameStart_Vendas.csv"));
                     break;
 
                 case 8:
