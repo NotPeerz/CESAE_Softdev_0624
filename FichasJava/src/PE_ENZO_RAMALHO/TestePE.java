@@ -6,7 +6,6 @@ import java.util.Scanner;
 
 import static FichaPratica07.ex01.imprimirFicheiro;
 import static FichaPratica07.ex07.contarLinhasFicheiro;
-import static PE_ENZO_RAMALHO.login2.lerVendas;
 
 public class TestePE {
     public static String imprimirPesquisaCliente(String path) throws FileNotFoundException {
@@ -278,16 +277,16 @@ public class TestePE {
                     }
                     break;
 
-                case 2:
+                case 2://função Valor total das vendas.
                     System.out.println("Aqui está o total de vendas Admin!!");
                     System.out.println(valorTotalVendido("FichasJava/GameStart/GameStart_Vendas.csv"));
                     break;
 
-                case 3://Total lucro
+                case 3://função total lucro.
                     exibirTotalDeLucro("FichasJava/GameStart/GameStart_Vendas.csv","FichasJava/GameStart/GameStart_Categorias.csv");
                     break;
 
-                case 4: //Pesquisa de cliente.
+                case 4: //função Pesquisa de cliente.
                     imprimirPesquisaCliente("FichasJava/GameStart/GameStart_Clientes.csv");
                     break;
 
