@@ -9,14 +9,22 @@ import static FichaPratica07.ex07.contarLinhasFicheiro;
 
 public class TestePE {
     public static String imprimirPesquisaCliente(String path) throws FileNotFoundException {
+        //scanner ficheiro para armazenar informações do ficheiro
         Scanner scannerFicheiro = new Scanner(new File("FichasJava/GameStart/GameStart_Clientes.csv"));
+        //scanner para a variavel
         Scanner scanner = new Scanner(System.in);
+        //variavel cliente
         int idCliente;
         System.out.println("Pesquisar id Cliente🔎:");
+        //scanner da variavel
         idCliente=scanner.nextInt();
+        //ciclo
         while (scannerFicheiro.hasNextLine()) {
+            //scanneado a linha caso tenha proxima linha
             String linha = scannerFicheiro.nextLine();
+            //dividindo a linha por ";"
             String[] linhaDividida = linha.split(";");
+            //se o id do cliente for maior que 0 e menor ou igual a 90 imprime a linha dividida 1,2,3 (no caso a coluna)
             if(idCliente>0 && idCliente<=90) {
                 System.out.println(linhaDividida[1]+" ");
                 System.out.println(linhaDividida[2]+" ");
@@ -27,82 +35,20 @@ public class TestePE {
         return imprimirPesquisaCliente("FichasJava/GameStart/GameStart_Clientes.csv");
  //falta implementar para não ser um ciclo infinito e dar espaçamento entre as informações.
     }
-
-
-//    public static String imprimirVendas(String path) throws FileNotFoundException {
-//        Scanner scannerFicheiro = new Scanner(new File(""));
-//        while (scannerFicheiro.hasNextLine()) {
-//            String linha = scannerFicheiro.nextLine();
-//            String[] linhaDividida = linha.split(";");
-//            System.out.print(linhaDividida[1]);
-//            System.out.print(linhaDividida[2]);
-//            System.out.print(linhaDividida[3]);
-//        }
-//        return imprimirVendas("FichasJava/GameStart/GameStart_Clientes.csv");
-//    }
-
-//    public static String imprimirCatalogo() throws FileNotFoundException {
-//        return imprimirFicheiro("FichasJava/GameStart/GameStart_Vendas.csv");
-//    }
-//    //Função que imprime o Catalogo do ficheiro.
-
-//   public static void lerVendas(String path) throws FileNotFoundException {
-//        Scanner scannerFicheiro = new Scanner(new File(path));
-//         int vendas = 0;
-//        String linha = scannerFicheiro.nextLine();
-//        while (scannerFicheiro.hasNextLine()) {
-//            linha = scannerFicheiro.nextLine();
-//            String[] linhaDividida = linha.split(";");
-//            String vendaId=linhaDividida[0];
-//            if (seNumerico(vendaId)) {
-//                vendas = Integer.parseInt(vendaId);
-//            }else{
-//                System.out.println("Erro");
-//            }
-//        }
-//        return vendas;
-//    }
-    //Função que vai ler o ficheiro de vendas imprimindo apenas as vendas, sem soma-las.
-   // public static boolean seNumerico(String)
-
-//    public static String pesquisaCliente(String path) throws FileNotFoundException {
-    //Pesquisa cliente: dado um idCliente, imprima toas as informações associadas a esse cliente(nome, contacto, email)
-    //path ficheiro clientes: "FichasJava/GameStart/GameStart_Clientes.csv"
-//        Scanner scannerFicheiro = new Scanner(new File(path));
-//        int idCliente = 0;
-//        String linha = scannerFicheiro.nextLine();
-//
-//        while (scannerFicheiro.hasNextLine()) {
-//            linha = scannerFicheiro.nextLine();
-//            String[] linhaDividida = linha.split(";");
-//            idCliente=Integer.parseInt(linhaDividida[0]);
-//        }
-//        return pesquisaCliente;
-//    }
-
-//public static int imprimirFicheiroCliente(String path) throws FileNotFoundException {
-//    Scanner scannerFicheiro = new Scanner(new File(path));
-//    int idCliente = 0;
-//    while ( scannerFicheiro.hasNextLine()){
-//        String linha = scannerFicheiro.nextLine();
-//        String[] linhaDividida = linha.split(";");
-//        idCliente= Integer.parseInt(linhaDividida[1]);
-//
-//    }
-//    return idCliente;
-//}
-
+    //Função que pesquisa o Cliente pelo seu id.
     public static double valorTotalVendido(String path) throws FileNotFoundException {
         Scanner scannerFicheiro = new Scanner(new File(path));
+        //variavel para o valor totalVendido sendo double para valores nao inteiros.
         double totalVendido = 0;
         String linha = scannerFicheiro.nextLine();
-
+//ciclo
         while (scannerFicheiro.hasNextLine()) {
+            //enquanto ficheiro tiver proxima linha, faz o scan da linha.
             linha = scannerFicheiro.nextLine();
-            String[] linhaDividida = linha.split(";");
-            totalVendido +=Double.parseDouble(linhaDividida[5]);
+            String[] linhaDividida = linha.split(";"); //linha dividida por ";"
+            totalVendido +=Double.parseDouble(linhaDividida[5]); // double parse double para somar as variaveis double da coluna 5 e atribuindo esse valor para totalVendido.
         }
-        return totalVendido;
+        return totalVendido; //retorna o valor
     }
     //Função que calcula o valor total das vendas.(pelo ficheiro de vendas
 
@@ -123,11 +69,11 @@ public class TestePE {
         }
         return matrizCompleta;
     }
-    //Função para ler vendas.(pelo ficheiro de vendas)
+    //Função para ler matriz completa pelo path de vendas, apenas raciocinio.
 
     public static String[] obterValores(String path, String campo, String delimitador) throws FileNotFoundException {
         Scanner scanner = new Scanner(new File(path));
-        if (scanner.hasNextLine()) return null;
+        if (scanner.hasNextLine()) return null; //se o ficheiro tiver proxima linha returna nulo
         String linha = scanner.nextLine();
         if (linha.contains(campo)) {
             String[] campos = linha.split(delimitador);
@@ -148,40 +94,41 @@ public class TestePE {
     }
     //Função que obtem os valores para o lucro.
 
-    public static void exibirTotalDeLucro(String pathVendas, String pathCategorias) throws FileNotFoundException {
-        String[] valoresNomeCategoria, valoresPercentagemCategoria, valoresCategoriaVendas, valoresValorVendas;
-        valoresNomeCategoria = obterValores(pathCategorias, "nomeCategoria", ";");
-        valoresPercentagemCategoria = obterValores(pathCategorias, "percentagemMargem", ";");
-        valoresCategoriaVendas = obterValores(pathVendas, "categoria", ";");
-        valoresValorVendas = obterValores(pathVendas, "valor", ";");
-        double lucroTotal = 0;
+    public static void exibirTotalDeLucro(String pathVendas, String pathCategorias) throws FileNotFoundException { //declarando as Strings para lerem dois path de ficheiros diferentes.
+        String[] valoresNomeCategoria, valoresPercentagemCategoria, valoresCategoriaVendas, valoresValorVendas; // declarando os valores como uma string de array
+        valoresNomeCategoria = obterValores(pathCategorias, "nomeCategoria", ";"); //atribuindo um valor para o nome de cada categoria, no qual vai obter os valores do ficheiro de categorias com o delimitador ";" para chegar na categoria
+        valoresPercentagemCategoria = obterValores(pathCategorias, "percentagemMargem", ";"); //atribuindo um valor para a porcentagem, na qual vai obter os valores do ficheiro de categorias e pegar a porcentagem de margem utilizando o delimitador ";" para chegar na coluna da porcentagem
+        valoresCategoriaVendas = obterValores(pathVendas, "categoria", ";"); //atribuindo um valor para as categorias de vendas, na qual obtem os valores do ficheiro de vendas usando o delimitador ";" como se fosse a "linha dividida"
+        valoresValorVendas = obterValores(pathVendas, "valor", ";"); //atribuindo um valor para o valor das vendas, na qual o valor +e obtido lendo o ficheiro de vendas e usando o delimitador ";" para chegar ate as vendas
+        double lucroTotal = 0; //declarando a variavel do lucro
 
-        for (int i = 0; i < valoresCategoriaVendas.length; i++) {
-            String categoria = valoresCategoriaVendas[i];
-            int indexNomeCategoria = -1;
-            for (int j = 0; j < valoresNomeCategoria.length; j++) {
+        for (int i = 0; i < valoresCategoriaVendas.length; i++) { //ciclo for para ler categoriaVendas até sua ultima linha
+            String categoria = valoresCategoriaVendas[i]; //declarando seu indice linha
+            int indexNomeCategoria = -1; //declarando um index para o nome da categoria que começe no 0
+            for (int j = 0; j < valoresNomeCategoria.length; j++) { //ciclo for para fazer o index ser lida ate sua ultima coluna
                 if (valoresNomeCategoria[j].equals(categoria)) indexNomeCategoria = j;
             }
 
-            if (indexNomeCategoria > -1) {
-                double porcentagemLucro = Double.parseDouble(valoresPercentagemCategoria[indexNomeCategoria]);
-                double valorVenda = Double.parseDouble(valoresValorVendas[i]);
+            if (indexNomeCategoria > -1) { //se o nome da categoria for maior que -1...
+                double porcentagemLucro = Double.parseDouble(valoresPercentagemCategoria[indexNomeCategoria]); // declarando a variavel da porcentagem de lucro e fazendo ela ser somada aos valores da porcentagem por categoria lendo o index
+                double valorVenda = Double.parseDouble(valoresValorVendas[i]); // declarando a variavel valod da venda fazendo ela ser somada com os valores das vendas das linhas
 
-                lucroTotal += (valorVenda * porcentagemLucro) / 100;
+                lucroTotal += (valorVenda * porcentagemLucro) / 100; //lógica do lucro por porcentagem
             }
         }
-        System.out.println("Lucro total das vendas por categoria: " + lucroTotal);
+        System.out.println("Lucro total das vendas por categoria: " + lucroTotal); //mostrando o lucrototal.
     }
-    //Função que denomina o lucro.
+    //Função que exibe o lucro.
 
-    public static String admin= "admin";
-    public static String adminSenha = "456";
+    public static String admin= "admin"; //declarando o usuario de login
+    //Funções que dão valor para as credenciais do admin.
+    public static String adminSenha = "456"; //declarando a senha de login
     //Funções que dão valor para as credenciais do admin.
 
     public static void main(String[] args) throws FileNotFoundException {
         Scanner scanner = new Scanner(System.in);
         //inicio do programa.
-        while (true) {
+        while (true) { //ciclo para repetir o programa
             System.out.println("\n 👾👾👾Bem vindo ao GameStart👾👾👾");
             System.out.println("1. Admin");
             System.out.println("2. Cliente");
@@ -192,17 +139,17 @@ public class TestePE {
             switch (opcao) {
                 case 1:
                     if (adminLogin(scanner)) {
-                        //adminLogin, para abrir o menu do admin, assim mostrando o que tem la dentro.
+                        //adminLogin, para acessar o menu admin.
                         adminMenu(scanner);
-                        //adminMenu scanner para ler a função associada ao menu do admin
-                    }else{
-                        imprimirFicheiro("FichasJava/src/PE_ENZO_RAMALHO/copyEnzo.txt");
-                        System.out.println("Saindo...");
+                        //adminMenu scanner para ler a função associada ao menu do admin, assim mostrando o menu.
+                    }else{ //caso nao acerte o login
+                        System.out.println("Credenciais incorretas...");
                     }
                     break;
 
                     case 2:// menu do cliente
                         clientMenu(scanner);
+                        //função que invoca o menu do cliente
                         break;
 
                         case 3:// sair
@@ -221,13 +168,13 @@ public class TestePE {
         System.out.println("Digite sua senha: ");
         String senha = scanner.nextLine();
         return
-                admin.equals(usuario) &&
-                        adminSenha.equals(senha);
+                admin.equals(usuario) && // faz o valor atribuido a string admin ser aberta caso igual ao usuario
+                        adminSenha.equals(senha); // faz o valor atribuido a string adminSenha ser aberta caso igual a senha
     }
-    //Função que faz o login do admin.
+    //Função login do admin.
 
     public static void adminMenu(Scanner scanner) throws FileNotFoundException {
-        while (true) {
+        while (true) { //ciclo para repetir o menu
             //dando boas vindas ao admin.
             System.out.println("Olá Admin, Seja bem-vindo!");
             System.out.println("Aqui está o menu Admin ✔: ");
@@ -247,7 +194,7 @@ public class TestePE {
             int opcao = scanner.nextInt();
             scanner.nextLine();
 
-            switch (opcao) {
+            switch (opcao) { //switch para opcao
                 case 1:
                     System.out.println("Escolha um Ficheiro.");
                     System.out.println("1. Vendas");
@@ -255,7 +202,7 @@ public class TestePE {
                     System.out.println("3. Categorias");
                     opcao = scanner.nextInt();
 
-                    switch (opcao) {
+                    switch (opcao) { //switch para opcao
                         case 1://Vendas
                             //imprime as vendas
                             System.out.println("Vendas: ");
@@ -263,7 +210,7 @@ public class TestePE {
                             break;
 
                         case 2://Clientes
-                            //faz pesquisa cliente
+                            //imprime as informações dos clientes
                             System.out.println("Clientes: ");
                             System.out.println(imprimirFicheiro("FichasJava/GameStart/GameStart_Clientes.csv"));
                             break;
@@ -327,8 +274,9 @@ public class TestePE {
         // função do menu do admin
 
         public static void clientMenu(Scanner scanner) throws FileNotFoundException {
-        while (true) {
-            System.out.println("Menu Cliente: ");
+        while (true) { //ciclo para repetir o menu do cliente
+            System.out.println("Seja Bem-Vindo Cliente!");
+            System.out.println("Aqui está seu menu: ");
             System.out.println("1. Novo Registo");
             System.out.println("2. Procurar estacionamento");
             System.out.println("3. Imprimir Catálogo");
@@ -336,11 +284,11 @@ public class TestePE {
             System.out.println("5. Imprimir Catálogo Editora");
             System.out.println("6. Imprimir Catálogo Categoria");
             System.out.println("7. Imprimir jogo mais recente");
-            System.out.println("Escolha uma opção.");
+            System.out.println("Escolha uma opção: ");
             int opcao = scanner.nextInt();
 
             scanner.nextLine();
-            switch (opcao) {
+            switch (opcao) { //switch para opcao
 
                 case 1:
                     //Registo de Cliente.
@@ -356,14 +304,14 @@ public class TestePE {
                     break;
 
                 case 2://Procurar estacionamento.
-                    int limite=121;
-                    for (int i=1;;i++) {
+                    int limite=121; //declarando variavel inteira para o limite de vagas
+                    for (int i=1;;i++) { //fazendo uma lógica para contar o triangular
                         int triangular=i * (i + 1)/2; // formula de um numero triangular
-                        if (triangular>limite) {
+                        if (triangular>limite) { //se o triangular for maior q o limite
                             break;
                         }
-                        if (triangular%5==0){
-                            System.out.println("Lugar de vaga: "+triangular);
+                        if (triangular%5==0){ //se o triangular puder ser dividido por 5 e que de resto =0.
+                            System.out.println("Lugar de vaga: "+triangular); //mostrar triangular
                         }
                     }
                     System.out.println("Vagas calculadas com sucesso!");
@@ -387,43 +335,48 @@ public class TestePE {
 
                     switch (opcao){
                         case 1://callofduty
+                            //Função que imprime o ficheiro de texto
                             imprimirFicheiro("FichasJava/GameStart/CatalogoGrafico/callOfDuty.txt");
                             break;
                         case 2:
+                            //Função que imprime o ficheiro de texto
                             imprimirFicheiro("FichasJava/GameStart/CatalogoGrafico/fifa.txt");
                             break;
                         case 3:
+                            //Função que imprime o ficheiro de texto
                             imprimirFicheiro("FichasJava/GameStart/CatalogoGrafico/hollowKnight.txt");
                             break;
                         case 4:
+                            //Função que imprime o ficheiro de texto
                             imprimirFicheiro("FichasJava/GameStart/CatalogoGrafico/minecraft.txt");
                             break;
                         case 5:
+                            //Função que imprime o ficheiro de texto
                             imprimirFicheiro("FichasJava/GameStart/CatalogoGrafico/mortalKombat.txt");
                             break;
                         case 6:
+                            //Função que imprime o ficheiro de texto
                             imprimirFicheiro("FichasJava/GameStart/CatalogoGrafico/overcooked.txt");
                             break;
                         case 7:
+                            //Função que imprime o ficheiro de texto
                             imprimirFicheiro("FichasJava/GameStart/CatalogoGrafico/witcher3.txt");
                             break;
                         default:
                     }
                     break;
 
-                case 5://Imprimir uma Editora nao tem
+                case 5://Imprimir uma Editora
                     System.out.println("Editora a pesquisar: ");
                     break;
 
                 case 6://Imprimir catalogo categoria, igual o da editora.
                     System.out.println("Catalogo Categoria: ");
-                    //nao tem
                     break;
 
                 case 7:
                     //imprimir jogo mais recente
                     System.out.println("Este é o jogo mais recente: ");
-                    // nao tem
                     break;
 
                 case 8:
@@ -433,7 +386,9 @@ public class TestePE {
                 default:
                     System.out.println("Opção inválida,tente novamente!");
             }
+            
             }
+
         }
-        //função do menu do cliente
+
         }
