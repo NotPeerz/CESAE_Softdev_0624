@@ -386,7 +386,7 @@ public class TestePE {
                 default:
                     System.out.println("Opção inválida,tente novamente!");
             }
-            
+
             }
 
         }
