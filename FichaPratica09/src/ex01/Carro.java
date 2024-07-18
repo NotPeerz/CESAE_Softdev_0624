@@ -46,7 +46,7 @@ public class Carro {
             }else{
                 if (adversario.potencia == this.potencia) {
                     //vai pro desempate na cilindrada
-
+                    //continuar a aheitar os if e elses
                     if (adversario.cilindrada > this.cilindrada) {
                         return adversario;
                     }else{
