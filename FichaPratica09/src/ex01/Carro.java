@@ -36,35 +36,59 @@ public class Carro {
         }
 
     }
-    public Carro corrida(Carro adversario){
-        if (adversario.potencia > this.potencia) {
-            // Ganha o adversario
-            return adversario;
-        }else{
-            if (adversario.potencia < this.potencia) {
-                return this;
-            }else{
-                if (adversario.potencia == this.potencia) {
-                    //vai pro desempate na cilindrada
-                    //continuar a aheitar os if e elses
-                    if (adversario.cilindrada > this.cilindrada) {
+    public Carro corrida(Carro adversario) {
+
+        if (this.potencia > adversario.potencia) {
+            // Ganha o meu carro por potencia
+            return this;
+        } else {
+
+            if (this.potencia < adversario.potencia) {
+                // Ganha o adversario por potencia
+                return adversario;
+            } else {
+                // Empate de potencia
+
+                if (this.cilindrada > adversario.cilindrada) {
+                    // Ganha o meu carro por cc
+                    return this;
+                } else {
+
+                    if (this.cilindrada < adversario.cilindrada) {
+                        // Ganha o adversario por cc
                         return adversario;
-                    }else{
-                        return this;
-                    }
-                    if (adversario.cilindrada==this.cilindrada) {
-                        if (adversario.idade < this.idade) {
-                            return adversario;
-                        }else{
+                    } else {
+                        //Empate de cc
+
+                        if (this.anoFabrica > adversario.anoFabrica) {
+                            // Ganha o meu carro por ser mais recente
                             return this;
+                        } else {
+
+                            if (this.anoFabrica < adversario.anoFabrica) {
+                                // Ganha o adversario por ser mais recente
+                                return adversario;
+                            } else {
+                                // Empate total
+                                return null;
+                            }
                         }
                     }
-                    if (adversario.idade == this.idade) {
-                        System.out.println("Houve um empate!");
-                        return null;
-                    }
                 }
-                return Carro;
+
             }
+
         }
+
+    }
+
+    public void exibirDetalhes() {
+        System.out.println("***** " + this.marca + " " + this.modelo + " *****");
+        System.out.println("Potência: " + this.potencia + " cv.");
+        System.out.println("Cilindrada: " + this.cilindrada + " cc");
+        System.out.println("Ano Fabrico: " + this.anoFabrica);
+        System.out.println("Tipo Combustivel: " + this.combustivel);
+        System.out.println("Consumo: " + this.litros100km + " L/100Km.");
+        System.out.println("****************************");
+    }
 }
