@@ -13,4 +13,11 @@ public class IngredientePizza {
         System.out.println(this.quantidade);
     }
 
+    public Ingrediente getIngrediente() {
+        return ingrediente;
+    }
+
+    public double getQuantidade() {
+        return quantidade;
+    }
 }
