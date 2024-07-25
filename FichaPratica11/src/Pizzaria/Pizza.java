@@ -1,62 +1,114 @@
 package Pizzaria;
 
 import Pizzaria.Enums.TamanhoPizza;
+import Pizzaria.Ingredientes.Base;
+import Pizzaria.Ingredientes.Topping;
 
 import java.util.ArrayList;
 
 public class Pizza {
-    private final int limiteIngrediente = 5;
-    private String codigo;
+    private final int MAX_INGREDIENTES = 5;
+    private int id;
     private String nome;
     private String descricao;
     private double preco;
-    private TamanhoPizza tamanhoPizzas;
-    private ArrayList<IngredientePizza> composicaoPizza;
+    private TamanhoPizza tamanho;
+    private ArrayList<IngredientePizza> listaIngredientes;
 
-    public Pizza(String codigo, String nome, String descricao, double preco, TamanhoPizza tamanhoPizzas) {
-        this.codigo = codigo;
+    public Pizza(int id, String nome, String descricao, double preco, TamanhoPizza tamanho, ArrayList<IngredientePizza> listaIngredientes) {
+        this.id = id;
         this.nome = nome;
         this.descricao = descricao;
         this.preco = preco;
-        this.tamanhoPizzas = tamanhoPizzas;
-        this.composicaoPizza = new ArrayList<IngredientePizza>();
+        this.tamanho = tamanho;
+        this.listaIngredientes = listaIngredientes;
     }
 
-    public void addIngrediente(IngredientePizza ingredienteNovo) {
-        if (this.composicaoPizza.size() < this.limiteIngrediente) {
-            this.composicaoPizza.add(ingredienteNovo);
+    public Pizza(int id, String nome, String descricao, double preco, TamanhoPizza tamanho) {
+        this.id = id;
+        this.nome = nome;
+        this.descricao = descricao;
+        this.preco = preco;
+        this.tamanho = tamanho;
+        this.listaIngredientes = new ArrayList<IngredientePizza>();
+    }
+
+    /**
+     * Método para adicionar um novo <b>IngredientePizza</b> à <b>listaIngredientes</b>
+     *
+     * @param ingredientePizzaNovo <b>IngredientePizza</b> a ser adicionado
+     */
+    public void addIngredientePizza(IngredientePizza ingredientePizzaNovo) {
+
+        if (this.listaIngredientes.isEmpty()) { // Ainda não temos nenhum IngredientePizza
+
+            if (ingredientePizzaNovo.getIngrediente() instanceof Base) { // Só convém adicionar Base
+                this.listaIngredientes.add(ingredientePizzaNovo);
+            }
+
+        } else { // Já temos, pelo menos um IngredientePizza
+
+            if (ingredientePizzaNovo.getIngrediente() instanceof Topping && this.listaIngredientes.size() < MAX_INGREDIENTES) { // Só convém adicionar Toppings, até chegar a um max de 5 ingredientes
+                this.listaIngredientes.add(ingredientePizzaNovo);
+            }
+
+        }
+
+    }
+
+    /**
+     * Método para remover um <b>IngredientePizza</b> através do seu <b>id</b>
+     *
+     * @param idRemover id do <b>IngredientePizza</b> a remover
+     */
+    public void removeIngredientePizza(int idRemover) {
+        for (IngredientePizza ingredientePizzaAtual : this.listaIngredientes) {
+            if (ingredientePizzaAtual.getIngrediente().getId() == idRemover) {
+                this.listaIngredientes.remove(ingredientePizzaAtual);
+                return;
+            }
         }
     }
 
-    public void removeIngrediente(IngredientePizza ingredienteRemover) {
-        for (int i = 0; i < this.composicaoPizza.size(); i++){
-            this.composicaoPizza.remove(ingredienteRemover.getIngrediente().getId());
+    /**
+     * Método para alterar a quantidade deu um <b>IngredientePizza</b> através do seu <b>id</b>
+     *
+     * @param idRemover      id do <b>IngredientePizza</b> cuja quantidade vai ser alterada
+     * @param novaQuantidade nova quantidade do <b>IngredientePizza</b>
+     */
+    public void alterarQuantidadeIngredientePizza(int idRemover, double novaQuantidade) {
+        for (IngredientePizza ingredientePizzaAtual : this.listaIngredientes) {
+            if (ingredientePizzaAtual.getIngrediente().getId() == idRemover) {
+                ingredientePizzaAtual.setQuantidade(novaQuantidade);
+                return;
+            }
         }
     }
 
-    public
+    public double caloriasTotais() {
+        double caloriasTotaisPizza = 0;
 
-    public int calcularCaloriasPizza(IngredientePizza calculoCaloria) {
-        int calculoCaloria=0;
-        for (){
-            this.composicaoPizza.(calculoCaloria.getIngrediente().getNumCalorias());
-        } return calculoCaloria;
+        for (IngredientePizza ingredientePizzaAtual : this.listaIngredientes) {
+            caloriasTotaisPizza += ingredientePizzaAtual.getQuantidade() * ingredientePizzaAtual.getIngrediente().getCalorias();
+        }
+
+        return caloriasTotaisPizza;
     }
 
     public void exibirDetalhesPizza() {
-        System.out.println("*****" + this.nome + "*****");
-        System.out.println("Código: " + this.codigo);
+        System.out.println("******** " + this.nome + " ********");
+        System.out.println("Código: " + this.id);
         System.out.println("Descrição: " + this.descricao);
-        System.out.println("Preço: " + this.preco + "€");
-        System.out.println("Tamanho: " + this.tamanhoPizzas);
-    }
+        System.out.println("Preço: " + this.preco + " €");
+        System.out.println("Tamanho: " + this.tamanho);
+        System.out.println("Kcal. Totais: " + this.caloriasTotais() + " Kcal.");
 
-    public void ingredienteContar() {
-        for (int i = 0; i < this.composicaoPizza.size(); i++) {
-            System.out.println("Ingrediente " + (i + 1) + ": ");
-            this.composicaoPizza.get(i).exibirDetalhes();
-
+        System.out.println("___ Lista de Ingredientes ___");
+        int cont = 1;
+        for (IngredientePizza ingredientePizzaAtual : this.listaIngredientes) {
+            System.out.print("Ingrediente " + cont++ + ": ");
+            ingredientePizzaAtual.exibirDetalhesIngredientePizza();
+            System.out.println();
         }
     }
-
 }
