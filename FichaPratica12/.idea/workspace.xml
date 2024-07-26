@@ -4,18 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f217ec13-cdb7-4ec8-b4f6-9caf0936cb89" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Enums/AlimentacaoDieta.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Enums/Familia.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/VidaMundial/Animal.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/VidaMundial/Inseto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/VidaMundial/MeioAmbiente.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/VidaMundial/Planta.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/VidaMundial/SerVivo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/VidaMundial/Main.java" afterDir="false" />
-    </list>
+    <list default="true" id="f217ec13-cdb7-4ec8-b4f6-9caf0936cb89" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
