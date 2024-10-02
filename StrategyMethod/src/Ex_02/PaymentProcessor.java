@@ -7,9 +7,9 @@ public class PaymentProcessor {
         this.discountStrategy = discountStrategy;
     }
 
-    public void calculateTotal() {
-        discountStrategy.discount();
-    }
+    public double calculateTotal(double value) {
 
+        return this.discountStrategy.discount()*value;
+    }
 
 }

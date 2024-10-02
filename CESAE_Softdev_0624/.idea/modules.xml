@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/CESAE_Softdev_0624.iml" filepath="$PROJECT_DIR$/.idea/CESAE_Softdev_0624.iml" />
+      <module fileurl="file://$PROJECT_DIR$/FichasJava/src/PE_ENZO_RAMALHO/CESAE_Softdev_0624/FichaPratica08/FichaPratica08.iml" filepath="$PROJECT_DIR$/FichasJava/src/PE_ENZO_RAMALHO/CESAE_Softdev_0624/FichaPratica08/FichaPratica08.iml" />
+      <module fileurl="file://$PROJECT_DIR$/FichasJava/src/PE_ENZO_RAMALHO/CESAE_Softdev_0624/FichaPratica09/FichaPratica09.iml" filepath="$PROJECT_DIR$/FichasJava/src/PE_ENZO_RAMALHO/CESAE_Softdev_0624/FichaPratica09/FichaPratica09.iml" />
+      <module fileurl="file://$PROJECT_DIR$/FichasJava/src/PE_ENZO_RAMALHO/CESAE_Softdev_0624/FichaPratica10/FichaPratica10.iml" filepath="$PROJECT_DIR$/FichasJava/src/PE_ENZO_RAMALHO/CESAE_Softdev_0624/FichaPratica10/FichaPratica10.iml" />
+      <module fileurl="file://$PROJECT_DIR$/FichasJava/src/PE_ENZO_RAMALHO/CESAE_Softdev_0624/FichaPratica11/FichaPratica11.iml" filepath="$PROJECT_DIR$/FichasJava/src/PE_ENZO_RAMALHO/CESAE_Softdev_0624/FichaPratica11/FichaPratica11.iml" />
+      <module fileurl="file://$PROJECT_DIR$/FichasJava/src/PE_ENZO_RAMALHO/CESAE_Softdev_0624/FichaPratica12/FichaPratica12.iml" filepath="$PROJECT_DIR$/FichasJava/src/PE_ENZO_RAMALHO/CESAE_Softdev_0624/FichaPratica12/FichaPratica12.iml" />
+      <module fileurl="file://$PROJECT_DIR$/FichasJava/src/PE_ENZO_RAMALHO/CESAE_Softdev_0624/FichaPratica14/FichaPratica14.iml" filepath="$PROJECT_DIR$/FichasJava/src/PE_ENZO_RAMALHO/CESAE_Softdev_0624/FichaPratica14/FichaPratica14.iml" />
+      <module fileurl="file://$PROJECT_DIR$/FichasJava/src/PE_ENZO_RAMALHO/CESAE_Softdev_0624/FichasJava/FichasJava.iml" filepath="$PROJECT_DIR$/FichasJava/src/PE_ENZO_RAMALHO/CESAE_Softdev_0624/FichasJava/FichasJava.iml" />
+    </modules>
+  </component>
+</project>
